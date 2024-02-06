@@ -1,17 +1,25 @@
-#main {
-
-}
-
-.login-box {
+body {
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f4f4f4;
 }
 
 .login-div {
     width: 300px;
+    margin: 1em;
 }
 
-.login-div  .login-from{
+#login-form {
     width: 100%;
 }
+
+.login-div #login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    text-align: left;
+}
+
