@@ -1,16 +1,4 @@
 {
-    "installCommand": "pip install -r requirements.txt",
-    "functions": {
-        "api/main.py": {
-            "runtime": "vercel-python"
-        }
-    },
-    "rewrites": [
-        {
-            "source": "/api/(.*)",
-            "destination": "/api/main.py"
-        }
-    ],
     "trailingSlash": true,
     "cleanUrls": true
 }
