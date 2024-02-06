@@ -1,4 +1,10 @@
 {
     "installCommand": "pip install -r requirements.txt",
+    "builds": [
+      {
+        "src": "api/main.py",
+        "use": "@vercel/python"
+      }
+    ],
     "trailingSlash": true
   }
