@@ -13,10 +13,21 @@ body {
 
 .login-div {
     width: 300px;
-    margin: 1em;
+    padding: 1em;
+    border-radius: 17px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-#login-form {
+.login-div #login-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.login-div #login-form {
     width: 100%;
 }
 
@@ -27,3 +38,30 @@ body {
     text-align: left;
 }
 
+.login-div #login-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.login-div #login-form .form-group input {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-div #login-form button {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-div #login-form button:hover {
+    background-color: #0056b3;
+}
