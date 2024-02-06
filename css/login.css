@@ -1,0 +1,17 @@
+#main {
+
+}
+
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-div {
+    width: 300px;
+}
+
+.login-div  .login-from{
+    width: 100%;
+}
