@@ -2,8 +2,8 @@
   "installCommand": "pip install -r requirements.txt",
   "rewrites": [
     {
-      "source": "/api",
-      "destination": "/api/main"
+      "source": "/api/:type*",
+      "destination": "/api/main/:type"
     }
   ],
   "trailingSlash": true,
