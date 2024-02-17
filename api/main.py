@@ -10,6 +10,6 @@ def read_root():
     return {"status": "200"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/api/login/")
+def read_item():
+    return {"status": "200"}
