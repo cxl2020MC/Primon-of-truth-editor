@@ -4,6 +4,14 @@
     {
       "source": "/api/(.*)",
       "destination": "/api/main"
+    },
+    {
+      "source": "/docs",
+      "destination": "/api/main"
+    },
+    {
+      "source": "/redoc",
+      "destination": "/api/main"
     }
   ],
   "trailingSlash": true,
