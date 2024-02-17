@@ -12,6 +12,10 @@
     {
       "source": "/redoc",
       "destination": "/api/main"
+    },
+    {
+      "source": "/openapi.json",
+      "destination": "/api/main"
     }
   ],
   "cleanUrls": true
