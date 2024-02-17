@@ -1,5 +1,11 @@
 {
-    "installCommand": "pip install -r requirements.txt",
-    "trailingSlash": true,
-    "cleanUrls": true
-  }
+  "installCommand": "pip install -r requirements.txt",
+  "rewrites": [
+    {
+      "source": "/api",
+      "destination": "/api/main"
+    }
+  ],
+  "trailingSlash": true,
+  "cleanUrls": true
+}
