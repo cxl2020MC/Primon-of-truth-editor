@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/:type*",
-      "destination": "/api/main/:type"
+      "destination": "/api/main/:type*"
     }
   ],
   "trailingSlash": true,
