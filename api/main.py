@@ -6,15 +6,15 @@ import os
 
 
 app = FastAPI()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/login")
 
 
-@app.get("/api/")
+@app.get("/api")
 def read_root():
     return {"status": "200"}
 
 
-@app.post("/api/login/")
+@app.post("/api/login")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     username = os.getenv('LOGIN_USER')
     if not username == form_data.username:
