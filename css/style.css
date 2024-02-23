@@ -1,0 +1,51 @@
+:root {
+    --card-border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    display: flex;
+    background-color: #f4f4f4;
+}
+
+.left-menu {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 14em;
+    flex-direction: column;
+    height: 100%;
+    border-right: rgba(0, 0, 0, 0.5) 1px solid;
+}
+
+.left-menu .left-menu-title {
+    text-align: center;
+}
+
+.left-menu .bottom {
+    margin-top: auto;
+}
+
+.left-menu ul {
+    /* width: 100%; */
+    padding: 0 0.5em;
+}
+
+.left-menu ul li {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0.5em;
+    background-color: #fff;
+    border-radius: 5px;
+    border: var(--card-border);
+}
+
+.left-menu ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.main {
+    flex: 1;
+}
