@@ -29,3 +29,17 @@ async def http_exception_handler(request, exc):
         status_code=exc.status_code,
         content=return_data,
     )
+
+
+@app.exception_handler(Exception)
+async def unicorn_exception_handler(request, exc):
+    return_data = tool.return_data.update(
+        {
+            "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
+            "msg": "服务器错误"
+        }
+    )
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content=return_data,
+    )
