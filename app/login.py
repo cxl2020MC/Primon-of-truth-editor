@@ -20,5 +20,5 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
             status_code=status.HTTP_401_UNAUTHORIZED, 
             detail="用户名或密码错误",
         )
-    access_token = login_tool.create_access_token(data=userdata)
+    access_token = login_tool.生成登录令牌(data=userdata)
     return {"access_token": access_token, "token_type": "bearer"}
