@@ -23,7 +23,7 @@ async def http_exception_handler(request, exc):
     return_data.update(
         {
             "status": exc.status_code,
-            "msg": exc
+            "msg": str(exc)
         }
     )
     return JSONResponse(
