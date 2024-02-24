@@ -10,7 +10,7 @@ import os
 # 单位分钟
 登录令牌失效时间 = 60*24*30*3
 
-def 生成登录令牌(data: dict):
+def 生成登录令牌(data: dict) -> str:
     # 复制data字典
     to_encode = data.copy()
     # 设置过期时间
@@ -22,7 +22,7 @@ def 生成登录令牌(data: dict):
     # 返回编码后的jwt
     return encoded_jwt
 
-def 验证登录令牌(token: str):
+def 验证登录令牌(token: str) -> dict:
     try:
         jwt_data = jwt.decode(token, 签名密钥, algorithms=[加密算法])
         # username: str = jwt_data.get("sub")
