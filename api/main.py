@@ -26,6 +26,8 @@ async def http_exception_handler(request, exc):
         }
     )
     print(return_data)
+    print(exc)
+    print(tool.return_data)
     return JSONResponse(
         status_code=exc.status_code,
         content=return_data,
