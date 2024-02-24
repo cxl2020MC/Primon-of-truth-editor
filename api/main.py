@@ -1,5 +1,6 @@
 from typing import Union
 from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from fastapi.security import OAuth2PasswordBearer
 import os
@@ -24,5 +25,5 @@ async def http_exception_handler(request, exc):
     )
     return JSONResponse(
         status_code=exc.status_code,
-        content=return_data,
+        content= jsonable_encoder(return_data),
     )
