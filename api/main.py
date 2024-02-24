@@ -19,15 +19,13 @@ async def read_root():
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
-    return_data = tool.return_data.update(
+    return_data = tool.return_data.copy()
+    return_data.update(
         {
             "status": exc.status_code,
-            "msg": exc.detail
+            "msg": exc
         }
     )
-    print(return_data)
-    print(exc)
-    print(tool.return_data)
     return JSONResponse(
         status_code=exc.status_code,
         content=return_data,
@@ -36,10 +34,11 @@ async def http_exception_handler(request, exc):
 
 @app.exception_handler(Exception)
 async def unicorn_exception_handler(request, exc):
-    return_data = tool.return_data.update(
+    return_data = tool.return_data.copy()
+    return_data.update(
         {
             "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
-            "msg": "服务器错误"
+            "msg": f"服务器错误: {exc}"
         }
     )
     print(return_data)
