@@ -1,13 +1,14 @@
 from typing import Union
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.responses import JSONResponse
+from fastapi.security import OAuth2PasswordBearer
 import os
 
 from app import tool, login
 
 
 app = FastAPI()
-
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/login")
 app.include_router(login.router)
 
 @app.get("/api")
