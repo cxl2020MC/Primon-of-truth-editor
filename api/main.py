@@ -40,6 +40,7 @@ async def unicorn_exception_handler(request, exc):
             "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
             "msg": f"服务器错误: {exc}"
         }
+    )
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content=return_data,
