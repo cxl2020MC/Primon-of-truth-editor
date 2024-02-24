@@ -41,6 +41,8 @@ async def unicorn_exception_handler(request, exc):
         }
     )
     print(return_data)
+    print(exc)
+    print(tool.return_data)
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content=return_data,
