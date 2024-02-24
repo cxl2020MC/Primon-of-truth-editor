@@ -1,14 +1,16 @@
 from fastapi import APIRouter, HTTPException, status, Depends
-from fastapi.security import OAuth2PasswordRequestForm
-import os
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+import os, json
 from . import tool, login_tool
 
 router = APIRouter()
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/login")
+
 
 
 @router.post("/api/login")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    alluserdata = os.getenv('LOGIN_USERDATA')
+    alluserdata = json.loads(os.getenv('LOGIN_USERDATA'))
     userdata = {
         "username": form_data.username,
         "password": form_data.password
