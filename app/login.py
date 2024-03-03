@@ -22,3 +22,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
         )
     access_token = login_tool.生成登录令牌(data=userdata)
     return {"access_token": access_token, "token_type": "bearer"}
+
+@router.get("/api/get_userinfo")
+async def login(token: str = Depends(oauth2_scheme)):
+    return login_tool.验证登录令牌(token)
