@@ -1,15 +1,15 @@
-from typing import Union
+# from typing import Union
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-import os
 
-from app import tool, login
+from app import tool, login, api
 
 
 app = FastAPI()
 
 app.include_router(login.router)
+app.include_router(api.router)
 
 
 @app.get("/api")
