@@ -1,7 +1,7 @@
 // login-form
 const loginForm = document.getElementById('login-form');
 const loginErrorMsg = document.getElementById('login-error-msg');
-loginButton.addEventListener('click', (e) => {
+loginButton.addEventListener('submit', (e) => {
     e.preventDefault();
     const username = loginForm.username.value;
     const password = loginForm.password.value;
@@ -23,5 +23,5 @@ loginButton.addEventListener('click', (e) => {
             window.localStorage.setItem('登录密钥', 登录密钥);
             window.location.href = '/';
         }
-    }
+    })
 }
