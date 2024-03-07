@@ -24,4 +24,4 @@ loginButton.addEventListener('submit', (e) => {
             window.location.href = '/';
         }
     })
-}
+})
