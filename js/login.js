@@ -18,10 +18,8 @@ loginForm.addEventListener('submit', (e) => {
             return res.json();
         }
     }).then(data => {
-        if (data.status == 200) {
-            const 登录密钥 = data.access_token
-            window.localStorage.setItem('登录密钥', 登录密钥);
-            window.location.href = '/';
-        }
+        const 登录密钥 = data.access_token
+        window.localStorage.setItem('Auth_Token', 登录密钥);
+        window.location.href = '/';
     })
 })
