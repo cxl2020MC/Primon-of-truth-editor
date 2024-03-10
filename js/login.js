@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: `username=${username}&password=${password}`
         })
         if (req.ok) {
-            const res = await res.json();
+            const res = await req.json();
             // 处理响应数据
             const 登录密钥 = res.data.access_token
             console.log(登录密钥)
