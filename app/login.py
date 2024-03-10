@@ -24,10 +24,13 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     return_data = tool.return_data.copy()
     return_data.update(
         {
-            "data": {"access_token": access_token, "token_type": "bearer"}
+            "data": {
+                "access_token": access_token,
+                "token_type": "bearer"
+            }
         }
     )
-    return {"access_token": access_token, "token_type": "bearer"}
+    return return_data
 
 
 @router.get("/api/get_userinfo")
