@@ -15,12 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: `username=${username}&password=${password}`
         })
-        // 获取响应数据
-        const res = await req.json();
-        if (res.ok) {
-            const data = res.json();
+        if (req.ok) {
+            const res = await res.json();
             // 处理响应数据
-            const 登录密钥 = data.data.access_token
+            const 登录密钥 = res.data.access_token
             console.log(登录密钥)
             window.localStorage.setItem('Auth_Token', 登录密钥);
             window.location.href = '/';
