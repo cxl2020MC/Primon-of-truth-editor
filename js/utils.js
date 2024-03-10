@@ -7,7 +7,7 @@ class Utils {
             gravity: "top",
             position: "right",
             stopOnFocus: true,
-            className: type,
+            className: `toastify-${type}`,
             ...options
         };
         Toastify(options).showToast();

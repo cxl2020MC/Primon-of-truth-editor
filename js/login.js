@@ -19,9 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await req.json();
             // 处理响应数据
             const 登录密钥 = res.data.access_token
-            console.log(登录密钥)
+            // 保存登录信息
             window.localStorage.setItem('Auth_Token', 登录密钥);
-            window.location.href = '/';
+            utils.toastify("success", "登录成功");
+            // 跳转到主页
+            setTimeout(() => {
+                window.location.href = '/';
+            }
+            , 1000);
         }
     })
 });
