@@ -12,15 +12,28 @@ class utils {
         };
         Toastify(toastify_options).showToast();
     }
+}
+
+class Api{
+    constructor(){
+        this.auth_token = window.localStorage.getItem('Auth_Token');
+
+    }
     static async post(url, data) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
-
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.auth_token}`
             },
             body: JSON.stringify(data)
         })
         return response.json()
     }
+    async check_login(){
+        const response = await Api.post('/api/check_login', {});
+        return response;
+    }
 }
+
+const api = new Api();

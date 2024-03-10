@@ -37,6 +37,6 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     return return_data
 
 
-@router.get("/api/get_userinfo")
-async def login(token: str = Depends(oauth2_scheme)):
+@router.get("/api/check_login")
+async def check_login(token: str = Depends(oauth2_scheme)):
     return login_tool.验证登录令牌(token)

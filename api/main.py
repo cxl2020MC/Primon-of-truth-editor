@@ -14,7 +14,7 @@ app.include_router(api.router)
 
 @app.get("/api")
 async def read_root():
-    return {"status": "200"}
+    return {"code": "200"}
 
 
 @app.exception_handler(HTTPException)
@@ -22,7 +22,7 @@ async def http_exception_handler(request, exc):
     return_data = tool.return_data.copy()
     return_data.update(
         {
-            "status": exc.status_code,
+            "code": exc.status_code,
             "msg": str(exc)
         }
     )
@@ -37,7 +37,7 @@ async def unicorn_exception_handler(request, exc):
     return_data = tool.return_data.copy()
     return_data.update(
         {
-            "status": status.HTTP_500_INTERNAL_SERVER_ERROR,
+            "code": status.HTTP_500_INTERNAL_SERVER_ERROR,
             "msg": f"服务器错误: {exc}"
         }
     )
