@@ -1,6 +1,6 @@
 class Utils {
     static toastify(type, message, options) {
-        let options = {
+        let toastify_options = {
             text: message,
             duration: 3000,
             close: true,
@@ -10,7 +10,7 @@ class Utils {
             className: `toastify-${type}`,
             ...options
         };
-        Toastify(options).showToast();
+        Toastify(toastify_options).showToast();
     }
     static async post(url, data) {
         const response = await fetch(url, {
