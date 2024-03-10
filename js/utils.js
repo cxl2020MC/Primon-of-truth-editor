@@ -1,4 +1,4 @@
-class Utils {
+class utils {
     static toastify(type, message, options) {
         let toastify_options = {
             text: message,
@@ -24,5 +24,3 @@ class Utils {
         return response.json()
     }
 }
-
-const utils = new Utils()
