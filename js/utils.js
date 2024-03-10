@@ -25,4 +25,4 @@ class Utils {
     }
 }
 
-utils = new Utils()
+const utils = new Utils()
