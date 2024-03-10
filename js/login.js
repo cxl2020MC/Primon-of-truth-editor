@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = res.json();
             // 处理响应数据
             const 登录密钥 = data.data.access_token
+            console.log(登录密钥)
             window.localStorage.setItem('Auth_Token', 登录密钥);
             window.location.href = '/';
         }
