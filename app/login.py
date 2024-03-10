@@ -24,10 +24,14 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     return_data = tool.return_data.copy()
     return_data.update(
         {
+            "msg": "登录成功",
             "data": {
                 "access_token": access_token,
                 "token_type": "bearer"
-            }
+            },
+            # 兼容文档
+            "access_token": access_token,
+            "token_type": "bearer"
         }
     )
     return return_data
