@@ -4,5 +4,5 @@ from app.db import db
 router = APIRouter()
 
 @router.get("/api/get_juqin")
-async def 获取剧情(requests):
+async def 获取剧情():
     return db.juqin.find()
