@@ -19,8 +19,8 @@ async def 获取剧情():
 async def 保存剧情(name: str, data: dict):
     print(data)
     if name:
-        db.jqnames.insert_one({"name": name})
-        db.jqdata.insert_one({
+        await db.jqnames.insert_one({"name": name})
+        await db.jqdata.insert_one({
             "name": name,
             "data": data
         })
