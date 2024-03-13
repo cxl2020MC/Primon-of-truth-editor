@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends, requests
 from app.db import db
 from app import tool
+from typing import Union
 
 router = APIRouter()
 
@@ -8,6 +9,17 @@ router = APIRouter()
 @router.get("/api/get_juqin")
 async def 获取剧情():
     ret_deta = tool.return_data.copy()
-    ret_deta.update({"data": await db.juqin.find().to_list(length=None)})
+    ret_deta.update({"data": await db.jqnames.find().to_list(length=None)})
     print(ret_deta)
     return ret_deta
+
+@router.post("/api/save_juqin")
+async def 保存剧情(name: str | None, data: dict):
+    print(data)
+    if name:
+        db.jqnames.insert_one({"name": name})
+        db.jqdata.insert_one({
+            "name": name,
+            "data": data
+        })
+    return tool.return_data
