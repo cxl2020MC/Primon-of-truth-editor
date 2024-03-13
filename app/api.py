@@ -14,7 +14,7 @@ async def 获取剧情():
     return ret_deta
 
 @router.post("/api/save_juqin")
-async def 保存剧情(name: str | None, data: dict):
+async def 保存剧情(name: str, data: dict):
     print(data)
     if name:
         db.jqnames.insert_one({"name": name})
