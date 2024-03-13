@@ -9,4 +9,4 @@ router = APIRouter()
 async def 获取剧情():
     ret_deta = tool.return_data.copy()
     ret_deta.update({"data": db.juqin.find()})
-    return db.juqin.find()
+    return ret_deta
