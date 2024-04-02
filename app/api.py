@@ -9,8 +9,7 @@ router = APIRouter()
 @router.get("/api/get_juqin")
 async def 获取剧情():
     ret_deta = tool.return_data.copy()
-    juqinnames = db.jqnames.find({})
-    jqnamedata = juqinnames.to_list(length=100)
+    jqnamedata = list(db.jqnames.find({}))
     ret_deta.update({"data": jqnamedata})
     print(ret_deta)
     return ret_deta
