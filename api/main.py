@@ -2,6 +2,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+import traceback
 
 from app import tool, login, api
 
@@ -34,11 +35,12 @@ async def http_exception_handler(request, exc):
 
 @app.exception_handler(Exception)
 async def unicorn_exception_handler(request, exc):
+    错误信息 = traceback.format_exc()
     return_data = tool.return_data.copy()
     return_data.update(
         {
             "code": status.HTTP_500_INTERNAL_SERVER_ERROR,
-            "msg": f"服务器错误: {exc}"
+            "msg": f"服务器错误: {exc}\n {错误信息}"
         }
     )
     return JSONResponse(
