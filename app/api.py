@@ -11,7 +11,7 @@ router = APIRouter()
 async def 获取剧情():
     ret_deta = tool.return_data.copy()
     try:
-        jqnamedata = await db.jqnames.find().to_list(length=100)
+        jqnamedata = list(db.jqnames.find())
         ret_deta.update({"data": jqnamedata})
     except:
         ret_deta.update({"code": 1, "msg": traceback.format_exc()})
@@ -23,8 +23,8 @@ async def 获取剧情():
 async def 保存剧情(name: str, data: dict):
     print(data)
     if name:
-        await db.jqnames.insert_one({"name": name})
-        await db.jqdata.insert_one({
+        db.jqnames.insert_one({"name": name})
+        db.jqdata.insert_one({
             "name": name,
             "data": data
         })
