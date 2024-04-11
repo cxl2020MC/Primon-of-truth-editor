@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends, requests
-from fastapi.encoders import jsonable_encoder
+# from fastapi.encoders import jsonable_encoder
 from app.db import db
 from app import tool
 from typing import Union
@@ -13,12 +13,12 @@ router = APIRouter()
 async def 获取剧情():
     ret_deta = tool.return_data.copy()
     try:
-        jqnamedata = list(db.jqnames.find())
+        jqnamedata = list(db.jqnames.find({}, {"_id": 0}))
         ret_deta.update({"data": jqnamedata})
     except:
         ret_deta.update({"code": 1, "msg": traceback.format_exc()})
     print(ret_deta)
-    return jsonable_encoder(ret_deta)
+    return ret_deta
 
 
 @router.post("/api/save_juqin")
