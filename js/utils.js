@@ -17,9 +17,8 @@ class utils {
 class Api{
     constructor(){
         this.auth_token = window.localStorage.getItem('Auth_Token');
-
     }
-    static async post(url, data) {
+    async post(url, data) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -30,7 +29,7 @@ class Api{
         })
         return response.json()
     }
-    static async get(url) {
+    async get(url) {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
