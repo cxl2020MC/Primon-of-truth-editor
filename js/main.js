@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", async (e) => {
     const main_content = document.querySelector(".main")
     let res = await api.check_login()
-    if (res.ok) {
+    if (res.username) {
         res = await api.get_juqin()
-        if (res.username) {
+        if (res.ok) {
             let data = await res.json()
             console.log(data)
             data = data.data
