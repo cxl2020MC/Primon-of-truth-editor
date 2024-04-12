@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     let res = await api.check_login()
     if (res.ok) {
         res = await api.get_juqin()
-        if (res.ok) {
+        if (res.username) {
             let data = await res.json()
             console.log(data)
             data = data.data
