@@ -30,8 +30,19 @@ class Api{
         })
         return response.json()
     }
+    static async get(url, data) {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.auth_token}`
+            },
+            body: JSON.stringify(data)
+        })
+        return response.json()
+    }
     async check_login(){
-        const response = await Api.post('/api/check_login', {});
+        const response = await Api.get('/api/check_login', {});
         return response;
     }
     async get_juqin(){
