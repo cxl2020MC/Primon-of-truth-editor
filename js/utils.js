@@ -30,14 +30,13 @@ class Api{
         })
         return response.json()
     }
-    static async get(url, data) {
+    static async get(url) {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.auth_token}`
             },
-            body: JSON.stringify(data)
         })
         return response.json()
     }
