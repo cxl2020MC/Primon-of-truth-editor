@@ -40,11 +40,11 @@ class Api{
         return response.json()
     }
     async check_login(){
-        const response = await Api.get('/api/check_login', {});
+        const response = await this.get('/api/check_login', {});
         return response;
     }
     async get_juqin(){
-        const response = await Api.post('/api/get_juqin', {});
+        const response = await this.post('/api/get_juqin', {});
         return response;
     }
 }
