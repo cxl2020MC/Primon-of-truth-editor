@@ -34,6 +34,10 @@ class Api{
         const response = await Api.post('/api/check_login', {});
         return response;
     }
+    async get_juqin(){
+        const response = await Api.post('/api/get_juqin', {});
+        return response;
+    }
 }
 
 const api = new Api();
