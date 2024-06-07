@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends, requests
 # from fastapi.encoders import jsonable_encoder
-from app.db import db
-from app import tool
+from core.db import db
+from core import tool
 from typing import Union
 
 import traceback

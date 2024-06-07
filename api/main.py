@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 import traceback
 
-from app import tool, login, api
+from core import tool, login, api
 
 
 app = FastAPI()
