@@ -64,7 +64,7 @@ body {
 .loading-div .loading {
     text-align: center;
     color: gray;
-    background-image: url("/img/loading.svg");
+    background-image: url("/static/img/loading.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

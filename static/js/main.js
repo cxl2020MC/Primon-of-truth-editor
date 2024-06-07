@@ -14,5 +14,8 @@ document.addEventListener("DOMContentLoaded", async (e) => {
                 main_content.appendChild(div)
             }
         }
+    } else {
+        // 未登录
+        window.location.href = "/login"
     }
 })
