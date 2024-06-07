@@ -9,7 +9,7 @@ from core import tool, login, api
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 app.include_router(login.router)
 app.include_router(api.router)
