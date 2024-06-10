@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             utils.toastify("success", "登录成功");
             // 跳转到主页
             setTimeout(() => {
-                // window.location.href = '/';
+                window.location.href = '/';
             }, 1000);
         } else {
             utils.toastify("error", res.msg);
