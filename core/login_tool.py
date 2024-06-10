@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import os
 
 # 设置签名密钥
-签名密钥 = os.getenv("JWT_SECRET")
+签名密钥 = os.getenv("JWT_SECRET_KEY", "secret")
 # 设置算法
 加密算法 = "HS256"
 # 单位分钟

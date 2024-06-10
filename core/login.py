@@ -10,13 +10,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/login")
 
 @router.post("/api/login")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    # alluserdata = json.loads(os.getenv('LOGIN_USERDATA'))
-    alluserdata = [
-        {
-            "username": "admin",
-            "password": "123456"
-        }
-    ]
+    alluserdata = json.loads(os.getenv("LOGIN_USERDATA", "{}"))
     userdata = {
         "username": form_data.username,
         "password": form_data.password
@@ -30,6 +24,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     return_data = tool.return_data.copy()
     return_data.update(
         {
+            "status": 200,
             "msg": "登录成功",
             "data": {
                 "access_token": access_token,

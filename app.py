@@ -1,11 +1,13 @@
+from core import tool, login, api, page
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 # from pydantic import BaseModel
 from typing import List
 import traceback
+import dotenv
 
-from core import tool, login, api, page
+dotenv.load_dotenv()
 
 
 app = FastAPI()
@@ -19,12 +21,13 @@ app.include_router(api.router)
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
-    retdeta = tool.return_data
+    retdeta = tool.return_data.copy()
 
-    retdeta.update(status=exc.status_code, msg=exc.detail)
+    retdeta.update({"status": exc.status_code, "msg": exc.detail})
     print(retdeta)
 
     return JSONResponse(retdeta, status_code=exc.status_code)
+
 
 @app.exception_handler(Exception)
 async def exception_handler(request, exc):

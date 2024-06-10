@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         const res = await req.json();
         // 处理响应数据
-        if (res.code == 200) {
+        if (res.status == 200) {
             const 登录密钥 = res.data.access_token
             // 保存登录信息
             window.localStorage.setItem('Auth_Token', 登录密钥);

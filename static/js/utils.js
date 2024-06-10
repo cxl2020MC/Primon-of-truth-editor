@@ -44,7 +44,7 @@ class Api{
         return response;
     }
     async get_juqin(){
-        const response = await this.post('/api/get_juqin', {});
+        const response = await this.get('/api/get_juqin', {});
         return response;
     }
 }
