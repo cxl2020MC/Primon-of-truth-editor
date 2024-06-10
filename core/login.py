@@ -10,7 +10,13 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/login")
 
 @router.post("/api/login")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    alluserdata = json.loads(os.getenv('LOGIN_USERDATA'))
+    # alluserdata = json.loads(os.getenv('LOGIN_USERDATA'))
+    alluserdata = [
+        {
+            "username": "admin",
+            "password": "123456"
+        }
+    ]
     userdata = {
         "username": form_data.username,
         "password": form_data.password
