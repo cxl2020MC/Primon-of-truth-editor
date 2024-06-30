@@ -8,6 +8,10 @@ router = APIRouter()
 async def root():
     return  FileResponse("static/index.html")
 
+@router.get("/admin")
+async def index():
+    return  FileResponse("static/admin.html")
+
 @router.get("/login")
 async def login():
     return  FileResponse("static/login.html")
