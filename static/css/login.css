@@ -1,67 +1,38 @@
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-    background-image: url(/static/img/login.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.login-div {
-    width: 300px;
-    padding: 1em;
-    border-radius: 17px;
+#login {
+    /* 居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 100%; */
+    /* height: 100%; */
+    /* 背景模糊 */
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
 
-.login-div #login-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 1em;
-    text-align: center;
-}
-
-.login-div #login-form {
-    width: 100%;
-}
-
-.login-div #login-form .form-group {
+#login-form {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-    text-align: left;
+    flex-wrap: wrap;
+    width: 20em;
+    max-width: 100dvw;
+    /* 居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 背景模糊 */
+    backdrop-filter: blur(10px);
+    z-index: 999;
 }
 
-.login-div #login-form .form-group label {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-}
-
-.login-div #login-form .form-group input {
-    padding: 0.5em;
-    border: 1px solid #ccc;
+#login-form input {
+    border: var(--card-border);
+    outline: solid 1px var(--card-border-color);
     border-radius: 5px;
-    font-size: 1em;
-}
-
-.login-div #login-form button {
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1em;
+    padding: 10px;
+    margin: 10px;
     width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-.login-div #login-form button:hover {
-    background-color: #0056b3;
+    font-size: 16px;
+    background-color: var(--card-background-color)
 }

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from pydantic import BaseModel
 import os
 import json
 from . import tool, login_tool
@@ -7,14 +8,14 @@ from . import tool, login_tool
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/login")
 
+class User(BaseModel):
+    username: str
+    password: str
 
 @router.post("/api/login")
-async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    alluserdata = json.loads(os.getenv("LOGIN_USERDATA", "{}"))
-    userdata = {
-        "username": form_data.username,
-        "password": form_data.password
-    }
+async def login(re_userdata: User):
+    alluserdata = json.loads(os.getenv("ADMIN_USERDATA", "{}"))
+    userdata = dict(re_userdata)
     if not userdata in alluserdata:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

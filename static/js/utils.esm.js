@@ -1,4 +1,5 @@
-class utils {
+
+export class utils {
     static toastify(type, message, options) {
         let toastify_options = {
             text: message,
@@ -49,4 +50,4 @@ class Api{
     }
 }
 
-const api = new Api();
+export const api = new Api();
