@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,10 @@
     <!-- <script type="module" src="/static/js/utils.esm.js"></script> -->
     <script type="module" src="/static/js/login.esm.js"></script>
 </head>
+
 <body>
-    <div id="main">
-        <!-- 登录 -->
-        <div id="login">
+    <div class="magisk">
+        <dialog id="login" open>
             <form id="login-form">
                 <label for="username">用户名</label>
                 <input type="text" id="username" name="username" placeholder="用户名">
@@ -23,7 +24,11 @@
                 <input type="password" id="password" name="password" placeholder="密码">
                 <input type="submit" value="登录">
             </form>
-        </div>
+        </dialog>
+    </div>
+    <div id="main">
+
     </div>
 </body>
+
 </html>

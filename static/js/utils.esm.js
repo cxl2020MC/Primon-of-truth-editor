@@ -1,5 +1,5 @@
 
-export class utils {
+class utils {
     static toastify(type, message, options) {
         let toastify_options = {
             text: message,
@@ -15,7 +15,8 @@ export class utils {
     }
 }
 
-class Api{
+
+class api{
     constructor(){
         this.auth_token = window.localStorage.getItem('Auth_Token');
     }
@@ -50,4 +51,7 @@ class Api{
     }
 }
 
-export const api = new Api();
+const Utils = new utils();
+const Api = new api();
+
+export { Utils, Api };
