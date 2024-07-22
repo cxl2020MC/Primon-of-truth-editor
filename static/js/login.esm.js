@@ -1,7 +1,12 @@
 import { utils } from './utils.esm.js';
 
 function check_login() {
-    // TODO
+    fetch('/api/check_login', { method: 'GET' }).then(res => res.json()).then(data => {
+        if (data.status == 200) {
+            // window.location.href = '/'
+            utils.toastify("success", `欢迎 {${data.data.username}} 登录`);
+        }
+    })
 }
 
 function login() {
@@ -25,9 +30,9 @@ function login() {
                 if (data.status == 200) {
                     const 登录密钥 = data.access_token
                     // 保存登录信息
-                    window.localStorage.setItem('Auth_Token', 登录密钥);    
+                    window.localStorage.setItem('Auth_Token', 登录密钥);
                     utils.toastify("success", "登录成功");
-                    
+
                 } else {
                     utils.toastify("error", "登录失败");
                 }
@@ -37,6 +42,22 @@ function login() {
 }
 
 
+function show_login() {
+    // 页面最后插入登录容器
+    const HTML = `
+    <div class="magisk">
+        <dialog id="login" open>
+            <form id="login-form">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" placeholder="用户名">
+                <input type="password" id="password" name="password" placeholder="密码">
+                <input type="submit" value="登录">
+            </form>
+        </dialog>
+    </div>`
+    document.body.insertAdjacentHTML('beforeend', HTML);
+}
 
-export { login, check_login };
+
+export { login, check_login, show_login };
 
