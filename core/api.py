@@ -6,6 +6,10 @@ from typing import Union
 
 import traceback
 
+from pydantic import BaseModel
+from bson import ObjectId
+BaseModel.model_config["json_encoders"] = {ObjectId: lambda v: str(v)}
+
 router = APIRouter()
 
 
@@ -24,10 +28,11 @@ async def 获取剧情():
 @router.post("/api/save_juqin")
 async def 保存剧情(name: str, data: dict):
     print(data)
-    if name:
-        db.jqnames.insert_one({"name": name})
-        db.jqdata.insert_one({
-            "name": name,
-            "data": data
-        })
+    # await db.jqnames.insert_one({"name": name})
+    return_data = await db.jqdata.insert_one({
+        "name": name,
+        "data": data
+    })
+    
+    
     return tool.return_data

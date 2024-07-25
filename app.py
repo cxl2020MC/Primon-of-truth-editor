@@ -2,7 +2,7 @@ from core import tool, login, api, page
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
-# from pydantic import BaseModel
+from pydantic import BaseModel
 from typing import List
 import traceback
 import dotenv
@@ -18,6 +18,11 @@ app.include_router(page.router)
 app.include_router(login.router)
 app.include_router(api.router)
 
+
+class ReturnData(BaseModel):
+    status: int
+    msg: str
+    data: List[dict] = []
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):

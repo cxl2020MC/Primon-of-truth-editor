@@ -1,4 +1,5 @@
 .magisk {
+    display: none;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
@@ -7,6 +8,10 @@
     top: 0;
     left: 0;
     z-index: 999;
+}
+
+.magisk.open {
+    display: block;
 }
 
 .magisk.center {
@@ -25,7 +30,7 @@
     border: none;
     border-radius: 10px;
     padding: 2em;
-    margin: 0 auto;
+    margin: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 20em;
     max-width: 100dvw;
@@ -36,13 +41,31 @@
     flex-wrap: wrap;
 }
 
+#login-form h2 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: var(--card-title-color);
+}
+
 #login-form input {
-    border: var(--card-border);
-    outline: solid 1px var(--card-border-color);
+    border: var(--input-border);
+    /* outline: solid 1px var(--theme-color-yellow); */
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
     width: 100%;
     font-size: 16px;
     background-color: var(--card-background-color)
+}
+
+#login-form input[type="submit"] {
+    background-color: var(--theme-color);
+    border: none;
+    color: white;
+    cursor: pointer;
 }

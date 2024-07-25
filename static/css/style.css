@@ -1,6 +1,15 @@
 :root {
     --card-border: 1px solid rgba(0, 0, 0, 0.12);
+    --input-border: 1px solid var(--theme-color-yellow);
     --card-border-bottom: 7px;
+    --card-border-radius: 7px;
+    --text-color: #000;
+    --text-color-light: #fff;
+    --theme-color: #5CB3DC;
+    --theme-color-red: #EF6F48;
+    --theme-color-green: #7BA23F;
+    --theme-color-blue: #5CB3DC;
+    --theme-color-yellow: #F6DEAD;
 }
 
 body {
@@ -56,15 +65,43 @@ body {
 
 .loading-div {
     height: 100%;
+    width:100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.loading-div .loading-img {
+    max-width: 2em;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.12);
+    border-radius: var(--card-border-radius)
+}
+
+.loading-div .loading .loading-text {
+    margin-top: 1em;
 }
 
 .loading-div .loading {
     text-align: center;
     color: gray;
     background-image: url("/static/img/loading.svg");
+    background-color: rgba(0, 0, 0, 0.12);
+    padding: 1em;
+    aspect-ratio: 1 / 1;
+    height: 3em;
+}
+
+.loading-div .loading .loading-text {
+    margin-top: 1em;
+}
+
+.loading-div .loading .loading-text span {
+    color: var(--theme-color);
+}
+
+.loading-div .loading .loading-text span.loading-text-loading {
+    color: var(--theme-color-red);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
