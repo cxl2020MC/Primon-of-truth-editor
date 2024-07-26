@@ -10,9 +10,11 @@ return_data = {
 }
 
 # 将ObjectId转换为字符串
-def encode_db_data(data: Any) ->dict:
-    data = dict(data)
-    for key, value in data:
-        if isinstance(value, ObjectId):
-            data[key] = str(value)
+def encode_db_data(data: dict | list | None) ->dict | list | None:
+    # data = dict(data)
+    if isinstance(data, list):
+        for item in data:
+            encode_db_data(item)
+    elif isinstance(data, dict):
+        data["_id"] = str(data["_id"])
     return data
