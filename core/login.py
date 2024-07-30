@@ -13,25 +13,29 @@ class User(BaseModel):
     password: str
 
 @router.post("/api/login")
-async def login(re_userdata: User):
+async def login(re_userdata: OAuth2PasswordRequestForm = Depends()):
     alluserdata = json.loads(os.getenv("ADMIN_USERDATA", "{}"))
-    userdata = dict(re_userdata)
+    # userdata = dict(re_userdata)
+    userdata = {
+        "username": re_userdata.username,
+        "password": re_userdata.password
+    }
     if not userdata in alluserdata:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="用户名或密码错误",
         )
+    jwt_data = {
+        "username": re_userdata.username,
+        # "password": re_userdata.password
+    
+    }
     access_token = login_tool.生成登录令牌(data=userdata)
     return_data = tool.return_data.copy()
     return_data.update(
         {
             "status": 200,
             "msg": "登录成功",
-            "data": {
-                "access_token": access_token,
-                "token_type": "bearer"
-            },
-            # 兼容文档
             "access_token": access_token,
             "token_type": "bearer"
         }
