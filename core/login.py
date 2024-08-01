@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from typing import Annotated
 from pydantic import BaseModel
 import os
 import json
@@ -13,9 +14,8 @@ class User(BaseModel):
     password: str
 
 @router.post("/api/login")
-async def login(re_userdata: OAuth2PasswordRequestForm = Depends()):
+async def login(re_userdata: Annotated[OAuth2PasswordRequestForm, Depends()]):
     alluserdata = json.loads(os.getenv("ADMIN_USERDATA", "{}"))
-    # userdata = dict(re_userdata)
     userdata = {
         "username": re_userdata.username,
         "password": re_userdata.password
@@ -27,8 +27,8 @@ async def login(re_userdata: OAuth2PasswordRequestForm = Depends()):
         )
     jwt_data = {
         "username": re_userdata.username,
+        "admin": True,
         # "password": re_userdata.password
-    
     }
     access_token = login_tool.生成登录令牌(data=userdata)
     return_data = tool.return_data.copy()
