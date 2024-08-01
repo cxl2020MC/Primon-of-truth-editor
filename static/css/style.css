@@ -63,6 +63,40 @@ body {
     flex: 1;
 }
 
+#page-loading-magisk {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(17px);
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#page-loading-magisk.show {
+    display: flex;
+}
+
+#page-loading-magisk #page-loading-div {
+}
+
+#page-loading-magisk #page-loading-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* width: 100%; */
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.12);
+    margin-top: 1em;
+    text-align: center;
+    color: #fff;
+}
+
 .loading-div {
     height: 100%;
     width:100%;
@@ -76,35 +110,4 @@ body {
     padding: 0.5em;
     background-color: rgba(0, 0, 0, 0.12);
     border-radius: var(--card-border-radius)
-}
-
-.loading-div .loading .loading-text {
-    margin-top: 1em;
-}
-
-.loading-div .loading {
-    text-align: center;
-    color: gray;
-    background-image: url("/static/img/loading.svg");
-    background-color: rgba(0, 0, 0, 0.12);
-    padding: 1em;
-    aspect-ratio: 1 / 1;
-    height: 3em;
-}
-
-.loading-div .loading .loading-text {
-    margin-top: 1em;
-}
-
-.loading-div .loading .loading-text span {
-    color: var(--theme-color);
-}
-
-.loading-div .loading .loading-text span.loading-text-loading {
-    color: var(--theme-color-red);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    aspect-ratio: 1 / 1;
-    height: 3em;
 }

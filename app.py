@@ -3,8 +3,6 @@ from core.log import logger as log
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
-from typing import List
 import traceback
 import dotenv
 
