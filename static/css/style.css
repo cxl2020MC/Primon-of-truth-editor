@@ -5,11 +5,17 @@
     --card-border-radius: 7px;
     --text-color: #000;
     --text-color-light: #fff;
-    --theme-color: #5CB3DC;
+    --theme-color: var(--theme-color-blue);
     --theme-color-red: #EF6F48;
     --theme-color-green: #7BA23F;
     --theme-color-blue: #5CB3DC;
-    --theme-color-yellow: #F6DEAD;
+    --theme-color-yellow: #D19826;
+
+    --theme-color-dark: var(--theme-color-blue-dark);
+    --theme-color-red-dark: #B54434;
+    --theme-color-green-dark: #579572;
+    --theme-color-blue-dark: #6699A1;
+    --theme-color-yellow-dark: #DDC871;
 }
 
 body {
@@ -70,7 +76,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--magisk-background-light);
     backdrop-filter: blur(17px);
     z-index: 999999;
     align-items: center;
@@ -83,18 +89,18 @@ body {
 }
 
 #page-loading-magisk #page-loading-div {
+    text-align: center;
 }
 
 #page-loading-magisk #page-loading-content {
     position: absolute;
     bottom: 0;
     left: 0;
-    /* width: 100%; */
-    padding: 0.5em;
-    background-color: rgba(0, 0, 0, 0.12);
+    width: 100%;
+    padding: 1em 0;
+    /* background-color: rgba(0, 0, 0, 0.12); */
     margin-top: 1em;
     text-align: center;
-    color: #fff;
 }
 
 .loading-div {
