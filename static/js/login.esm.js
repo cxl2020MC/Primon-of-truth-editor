@@ -1,46 +1,46 @@
-import { utils } from './utils.esm.js';
+import { utils } from "./utils.esm.js";
 
-function check_login() {
-    fetch('/api/check_login', { method: 'GET' }).then(res => res.json()).then(data => {
-        if (data.status == 200) {
-            // window.location.href = '/'
-            utils.toastify("success", `欢迎 {${data.data.username}} 登录`);
-        }
-    })
+async function check_login() {
+    fetch("/api/check_login", { method: "GET" })
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.status == 200) {
+                // window.location.href = '/'
+                utils.toastify("success", `欢迎 {${data.data.username}} 登录`);
+            }
+        });
 }
 
 function login() {
-    const loginForm = document.querySelector('#login-form');
-    loginForm.addEventListener('submit', async (e) => {
+    const loginForm = document.querySelector("#login-form");
+    loginForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const username = loginForm.username.value;
         const password = loginForm.password.value;
-        fetch('/api/login', {
-            method: 'POST',
+        fetch("/api/login", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 username: username,
-                password: password
-            })
+                password: password,
+            }),
         })
-            .then(res => res.json()).then(data => {
-                console.debug(data)
+            .then((res) => res.json())
+            .then((data) => {
+                console.debug(data);
                 if (data.status == 200) {
-                    const 登录密钥 = data.access_token
+                    const 登录密钥 = data.access_token;
                     // 保存登录信息
-                    window.localStorage.setItem('Auth_Token', 登录密钥);
+                    window.localStorage.setItem("Auth_Token", 登录密钥);
                     utils.toastify("success", "登录成功");
-
                 } else {
                     utils.toastify("error", "登录失败");
                 }
-            })
+            });
     });
-
 }
-
 
 function show_login() {
     // 页面最后插入登录容器
@@ -54,10 +54,8 @@ function show_login() {
                 <input type="submit" value="登录">
             </form>
         </dialog>
-    </div>`
-    document.body.insertAdjacentHTML('beforeend', HTML);
+    </div>`;
+    document.body.insertAdjacentHTML("beforeend", HTML);
 }
 
-
 export { login, check_login, show_login };
-

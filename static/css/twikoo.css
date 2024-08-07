@@ -1,0 +1,37 @@
+#twikoo {
+    --twikoo-bordar-radius: 8px;
+    --twikoo-broder: 1px solid var(--twikoo-border-color);
+}
+
+[data-user-color-scheme="light"] .twikoo {
+    --twikoo-card-bg-color: rgba(0, 0, 0, 0.02);
+    --twikoo-border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-user-color-scheme="dark"] .twikoo {
+    --twikoo-card-bg-color: rgba(62,75,94,0.35);
+    --twikoo-border-color: rgba(255,255,255,0.05);
+}
+
+
+.twikoo .tk-master {
+    background-color: var(--twikoo-card-bg-color);
+    border-radius: var(--twikoo-bordar-radius);
+    padding: 1em;
+}
+
+.twikoo .tk-master .tk-extra {
+    padding: 0.5em;
+    border: var(--twikoo-broder);
+    border-radius: var(--twikoo-bordar-radius);
+}
+
+.twikoo .tk-expand {
+    margin-top: 0.5em;
+    border: var(--twikoo-broder);
+    border-radius: var(--twikoo-bordar-radius);
+}
+
+.twikoo .tk-expand:hover {
+    background-color: var(--twikoo-card-bg-color);
+}
