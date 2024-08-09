@@ -1,15 +1,13 @@
 import { utils } from "./utils.esm.js";
 
 async function check_login() {
-    fetch("/api/check_login", { method: "GET" })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.status == 200) {
-                // window.location.href = '/'
-                utils.toastify("success", `欢迎 {${data.data.username}} 登录`);
-            }
-        });
-}
+    const res = await fetch("/api/check_login", { method: "GET" });
+    if (res.status == 200) {
+        console.debug("已登录");
+    };
+    const data = res.json();
+    return data;
+};
 
 function login() {
     const loginForm = document.querySelector("#login-form");
