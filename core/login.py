@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, HTTPException, status, Depends, Request
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from typing import Annotated
 from pydantic import BaseModel
@@ -15,10 +15,12 @@ class User(BaseModel):
 
 @router.post("/api/login")
 async def login(re_userdata: Annotated[OAuth2PasswordRequestForm, Depends()]):
+    """登录接口"""
     alluserdata = json.loads(os.getenv("ADMIN_USERDATA", "{}"))
     userdata = {
         "username": re_userdata.username,
-        "password": re_userdata.password
+        "password": re_userdata.password,
+        "admin": True,
     }
     if not userdata in alluserdata:
         raise HTTPException(

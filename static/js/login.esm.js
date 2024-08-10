@@ -13,17 +13,19 @@ function login() {
     const loginForm = document.querySelector("#login-form");
     loginForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const username = loginForm.username.value;
-        const password = loginForm.password.value;
+        // const username = loginForm.username.value;
+        // const password = loginForm.password.value;
+        const req_body = new FormData(loginForm);
         fetch("/api/login", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
-            }),
+            // headers: {
+                // "Content-Type": "application/json",
+            // },
+            // body: JSON.stringify({
+                // username: username,
+                // password: password,
+            // }),
+            body: req_body
         })
             .then((res) => res.json())
             .then((data) => {
@@ -43,7 +45,7 @@ function login() {
 function show_login() {
     // 页面最后插入登录容器
     const HTML = `
-    <div class="magisk">
+    <div class="magisk show">
         <dialog id="login" open>
             <form id="login-form">
                 <label for="username">用户名</label>
@@ -54,6 +56,8 @@ function show_login() {
         </dialog>
     </div>`;
     document.body.insertAdjacentHTML("beforeend", HTML);
+    login();
 }
+
 
 export { login, check_login, show_login };

@@ -24,12 +24,12 @@ class utils {
         page_loading_div.classList.add('show');
     }
     static show_loading() {
-        const loading_div = document.querySelector('.loading-div');
+        const loading_div = document.querySelector('#loading-div');
         loading_div.classList.remove('hide');
         loading_div.classList.add('show');
     }
     static hide_loading() {
-        const loading_div = document.querySelector('.loading-div');
+        const loading_div = document.querySelector('#loading-div');
         loading_div.classList.remove('show');
         loading_div.classList.add('hide');
     }
