@@ -1,7 +1,8 @@
 import { utils } from "./utils.esm.js";
 
 async function check_login() {
-    const res = await fetch("/api/check_login", { method: "GET" });
+    // const res = await fetch("/api/check_login", { method: "GET" });
+    const res = await utils.get("/api/check_login");
     if (res.status == 200) {
         console.debug("已登录");
     };
@@ -35,6 +36,8 @@ function login() {
                     // 保存登录信息
                     window.localStorage.setItem("Auth_Token", 登录密钥);
                     utils.toastify("success", "登录成功");
+                    // 关闭登录窗口
+
                 } else {
                     utils.toastify("error", "登录失败");
                 }
@@ -45,11 +48,11 @@ function login() {
 function show_login() {
     // 页面最后插入登录容器
     const HTML = `
-    <div class="magisk show">
+    <div class="magisk open">
         <dialog id="login" open>
             <form id="login-form">
-                <label for="username">用户名</label>
-                <input type="text" id="username" name="username" placeholder="用户名">
+                <h2>登录</h2>
+                <input type="text" id="username" name="username" autofocus placeholder="用户名">
                 <input type="password" id="password" name="password" placeholder="密码">
                 <input type="submit" value="登录">
             </form>
@@ -57,6 +60,13 @@ function show_login() {
     </div>`;
     document.body.insertAdjacentHTML("beforeend", HTML);
     login();
+}
+
+
+
+function hide_login() {
+    const login = document.querySelector("#login");
+    login.close();
 }
 
 

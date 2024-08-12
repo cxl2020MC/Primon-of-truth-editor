@@ -122,3 +122,19 @@ body {
     background-color: rgba(0, 0, 0, 0.12);
     border-radius: var(--card-border-radius)
 }
+
+.magisk {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(17px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.magisk.show {
+    display: block;
+}
